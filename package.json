@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-file-uploads-streaming-practice",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "worker": "node src/worker.js",
+    "test": "node --test",
+    "events": "node src/event-worker.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.0.0",
+    "@aws-sdk/lib-storage": "^3.0.0",
+    "@aws-sdk/s3-presigned-post": "^3.0.0",
+    "@aws-sdk/s3-request-presigner": "^3.0.0",
+    "better-sqlite3": "^12.0.0",
+    "dotenv": "^17.0.0",
+    "express": "^5.0.0",
+    "file-type": "^22.0.0",
+    "multer": "^2.0.0",
+    "@aws-sdk/client-sqs": "^3.0.0"
+  }
+}

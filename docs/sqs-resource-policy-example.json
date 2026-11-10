@@ -1,0 +1,16 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowBucketToPublishUploadEvents",
+      "Effect": "Allow",
+      "Principal": { "Service": "s3.amazonaws.com" },
+      "Action": "sqs:SendMessage",
+      "Resource": "arn:aws:sqs:ap-south-1:REPLACE_ACCOUNT_ID:REPLACE_QUEUE_NAME",
+      "Condition": {
+        "ArnEquals": { "aws:SourceArn": "arn:aws:s3:::REPLACE_BUCKET" },
+        "StringEquals": { "aws:SourceAccount": "REPLACE_ACCOUNT_ID" }
+      }
+    }
+  ]
+}

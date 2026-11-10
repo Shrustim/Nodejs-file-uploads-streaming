@@ -1,0 +1,30 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "WritePendingAndDestinations",
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:AbortMultipartUpload"],
+      "Resource": [
+        "arn:aws:s3:::REPLACE_BUCKET/incoming/*",
+        "arn:aws:s3:::REPLACE_BUCKET/clean/*",
+        "arn:aws:s3:::REPLACE_BUCKET/quarantine/*"
+      ]
+    },
+    {
+      "Sid": "ReadObjectsForVerificationAndSignedDownload",
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:GetObjectVersion"],
+      "Resource": [
+        "arn:aws:s3:::REPLACE_BUCKET/incoming/*",
+        "arn:aws:s3:::REPLACE_BUCKET/clean/*"
+      ]
+    },
+    {
+      "Sid": "HeadAndDeleteIncoming",
+      "Effect": "Allow",
+      "Action": ["s3:DeleteObject"],
+      "Resource": "arn:aws:s3:::REPLACE_BUCKET/incoming/*"
+    }
+  ]
+}
